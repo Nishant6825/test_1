@@ -20,7 +20,7 @@ promoRouter.route('/')
     res.end('Posting the promotion with name: '  + req.body.name + '\n' +'Description: ' + req.body.description)
 })
 .put((req,  res, next)=>{
-    res.end('Not supported at this endpoint..')
+    res.end('PUT operation not supported on /promotions')
 })
 .delete((req,  res, next)=>{
     res.end('Deleting All Promotions...') 
@@ -28,21 +28,21 @@ promoRouter.route('/')
 
 promoRouter.route('/:promoid')
 .get((req, res, next)=>{
-    res.end('Sending details of dish '+ req.params.promoid + ' to you '+ '\n' + 'With name: ' + req.body.name+ '\n'+'Descritpion: ' + req.body.description);
+    res.end('Sending details of promotion '+ req.params.promoid + ' to you.');
 })
 
 .post( (req,  res, next)=>{
-    res.end('Post not supported on this endpoint')
+    res.end('POST operation not supported on promotions/' + req.params.promoid)
 })
 
 .put( (req,  res, next)=>{
     
     res.write('Updating promotion: ' + req.params.promoid + '\n')
-    res.end("Will update Promotion: " + req.body.name + '\n' +'Description' + req.body.description) 
+    res.end("Will update Promotion: " + req.body.name + '\n' +'Description: ' + req.body.description) 
 })
 
 .delete((req,  res, next)=>{
-    res.end('Deleting Promotion no. ' + req.params.promoid) 
+    res.end('Deleting Promotion: ' + req.params.promoid) 
 })
 module.exports = promoRouter;
 

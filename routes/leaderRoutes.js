@@ -13,14 +13,14 @@ leaderRouter.route('/')
 
 })
 .get(function(req, res, next){
-    res.end('Getting all Leaders');
+    res.end('Getting all Leaders..');
 })
 
 .post((req,  res, next)=>{
     res.end('Posting the promotion with name: '  + req.body.name + '\n' +'Description: ' + req.body.description)
 })
 .put((req,  res, next)=>{
-    res.end('Not supported at this endpoint..')
+    res.end('PUT operation not supported on /leaders')
 })
 .delete((req,  res, next)=>{
     res.end('Deleting All Leaders...') 
@@ -28,21 +28,21 @@ leaderRouter.route('/')
 
 leaderRouter.route('/:leaderid')
 .get((req, res, next)=>{
-    res.end('Sending details of leader '+ req.params.leaderid + ' to you '+ '\n' + 'With name: ' + req.body.name+ '\n'+'Descritpion: ' + req.body.description);
+    res.end('Sending details of leader '+ req.params.leaderid + ' to you.');
 })
 
 .post( (req,  res, next)=>{
-    res.end('Post not supported on this endpoint')
+    res.end('POST operation not supported on leaders/' + req.params.leaderid)
 })
 
 .put( (req,  res, next)=>{
     
-    res.write('Updating promotion: ' + req.params.leaderid + '\n')
-    res.end("Will update Promotion: " + req.body.name + '\n' +'Description' + req.body.description) 
+    res.write('Updating leader: ' + req.params.leaderid + '\n')
+    res.end("Will update leader: " + req.body.name + '\n' +'Description: ' + req.body.description) 
 })
 
 .delete((req,  res, next)=>{
-    res.end('Deleting leader no. ' + req.params.leaderid) 
+    res.end('Deleting leader: ' + req.params.leaderid) 
 })
 module.exports = leaderRouter;
 

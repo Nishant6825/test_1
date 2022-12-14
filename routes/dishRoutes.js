@@ -20,27 +20,27 @@ dishRouter.route('/')
     res.end('Posting Dish: '  + req.body.name + '\n' + ' Decription: ' + req.body.description)
 })
 .put((req,  res, next)=>{
-    res.end('Not supported on this Route..')
+    res.end('PUT operation not supported on /dishes')
 })
 .delete((req,  res, next)=>{
     res.end('Deleting all Dishes..') 
 })
 dishRouter.route('/:dishid')
 .get((req, res, next)=>{
-    res.end('Sending details of dish '+ req.params.dishid + ' to you '+ '\n' + 'With name: ' + req.body.name+ '\n'+'Descritpion: ' + req.body.description);
+    res.end('Sending details of dish '+ req.params.dishid + ' to you.');
 })
 
 .post( (req,  res, next)=>{
-    res.end('Post not supported on this endpoint')
+    res.end('POST operation not supported on dishes/' + req.params.dishid)
 })
 
 .put( (req,  res, next)=>{
     
     res.write('Updating dish: ' + req.params.dishid + '\n')
-    res.end("Will update dish: " + req.body.name + '\n' +'Description' + req.body.description) 
+    res.end("Will update dish: " + req.body.name + '\n' +'Description: ' + req.body.description) 
 })
 
 .delete((req,  res, next)=>{
-    res.end('Deleting dish no. ' + req.params.dishid) 
+    res.end('Deleting dish no: ' + req.params.dishid) 
 })
 module.exports = dishRouter;
