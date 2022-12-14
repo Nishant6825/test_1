@@ -13,21 +13,21 @@ dishRouter.route('/')
 
 })
 .get(function(req, res, next){
-    res.end('Sending all dishes');
+    res.end('Getting all dishes');
 })
 
 .post((req,  res, next)=>{
-    res.end('Posting dish '  + req.body.name + 'with desc' + req.body.des)
+    res.end('Posting Dish: '  + req.body.name + '\n' + ' Decription: ' + req.body.description)
 })
 .put((req,  res, next)=>{
-    res.end('Not supported')
+    res.end('Not supported on this Route..')
 })
 .delete((req,  res, next)=>{
-    res.end('Deleting dishes') 
+    res.end('Deleting all Dishes..') 
 })
 dishRouter.route('/:dishid')
 .get((req, res, next)=>{
-    res.end('Sending details of dish '+ req.params.dishid + ' to you '+ '\n' + 'With name: ' + req.body.name+ '\n'+'Descritpion: ' + req.body.des);
+    res.end('Sending details of dish '+ req.params.dishid + ' to you '+ '\n' + 'With name: ' + req.body.name+ '\n'+'Descritpion: ' + req.body.description);
 })
 
 .post( (req,  res, next)=>{
@@ -37,7 +37,7 @@ dishRouter.route('/:dishid')
 .put( (req,  res, next)=>{
     
     res.write('Updating dish: ' + req.params.dishid + '\n')
-    res.end("Will update dish: " + req.body.name + '\n' +'Description' + req.body.des) 
+    res.end("Will update dish: " + req.body.name + '\n' +'Description' + req.body.description) 
 })
 
 .delete((req,  res, next)=>{
